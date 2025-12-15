@@ -5,21 +5,22 @@
     <title>Number Guessing Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css"/>
-    <script src="app.js" defer></script>
   </head>
     <body>
       <main>
        <h1>Number Guessing Game</h1>
        <p>Guess a number from 1 to 100</p>
+       <p id="guessParagraph">Guess Count: 0</p>
 
-       <form action="" method="get">
+       <form action="" id="inputForm" method="GET">
         <label for="guess">Insert Guess Here:</label>
         <input type="text" id="guess" name="guess" maxlength="3"/>
-        <button type="button">Submit Guess</button>
+        <button type="submit" id="guessButton">Submit Guess</button>
        </form>
 
        <a href="#">New Game</a>
 
       </main>
+      <script src="app.js"></script>
     </body>
 </html>
