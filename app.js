@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   let link = document.querySelector('a');
   let message = document.querySelector('p');
   let guessParagraph = document.querySelector('#guessParagraph');
+  let submitGuessButton = document.querySelector('#guessButton');
   let guessCount = 0;
 
 
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       if (!isValidInteger(input.value)) {
         message.textContent = 'Invalid input. Please enter a three-digit number.';
       } 
-      
+
       let guess = parseInt(input.value, 10);
       
       if (guess > answer) {
@@ -36,8 +37,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
         guessCount ++;
       } else  if (guess === answer) { 
         guessCount ++;
-        message.textContent = `You guessed correctly!`;
-        guessParagraph.textContent = `It took you ${guessCount} guesses to get the correct answer.`
+        message.textContent = `You guessed correctly! ${answer} is the correct answer`;
+        if (guessCount === 1) {
+           guessParagraph.textContent = `It only took you one guess!.`;
+        } else {
+          guessParagraph.textContent = `It took you ${guessCount} guesses.`
+        }
+        submitGuessButton.disabled = true;
       }
 
     });

@@ -53,3 +53,11 @@ input[type="submit"] {
 }
 
 a { color: #cc183e; }
+
+button:disabled {
+  color: grey;
+  border: none;
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
