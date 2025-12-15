@@ -2,7 +2,7 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function isValidInteger(num) {
+function isValidGuess(num) {
   return (
     Number.isInteger(num) &&
     num >= 1 &&
