@@ -3,12 +3,13 @@ function getRandomNumber(min, max) {
 }
 
 function isValidInteger(num) {
-  if (!Number.isInteger(num)) return false;
-  if (typeof num !== 'number') return false; 
-  if (String(num).length > 3) return false;
-
-  return true;
+  return (
+    Number.isInteger(num) &&
+    num >= 1 &&
+    num <= 100
+  );
 }
+
 
 document.addEventListener('DOMContentLoaded', (event) => {
   let answer = getRandomNumber(1, 100);
@@ -23,8 +24,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     form.addEventListener('submit', event => {
       event.preventDefault();
-      if (!isValidInteger(input.value)) {
+      if (!isValidInteger(Number(input.value))) {
         message.textContent = 'Invalid input. Please enter a three-digit number.';
+        return;
       } 
 
       let guess = parseInt(input.value, 10);
@@ -55,6 +57,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       guessParagraph.textContent = '';
       guessCount = 0;
       message.textContent = 'Guess a number from 1 to 100';
+      submitGuessButton.disabled = false;
     });
 
     
